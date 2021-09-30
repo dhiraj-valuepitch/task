@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="offset-3 col-lg-6">
+            <div class="card mt-5">
+                <div class="card-header text-center bg-dark text-light">User Form</div>
+                <div class="card-body">
+                    <form [formGroup]="adduser" (ngSubmit)="onSubmit()">
+                        <label for="name">Enter Name</label>
+                        <input type="text" id="name" formControlName="username" class="form-control mb-2" [ngClass]="{'is-invalid': !adduser.get('username').valid && adduser.get('username').touched,'is-valid':adduser.get('username').valid && adduser.get('username').touched }">
+                        <span *ngIf="!adduser.get('username').valid && adduser.get('username').touched" class="text-danger">Please Enter Name</span><br>
+
+
+                        <label for="lname">Enter Password</label>
+                        <input type="password" id="lname" formControlName="password" class="form-control mb-2" [ngClass]="{'is-invalid': !adduser.get('password').valid && adduser.get('password').touched,'is-valid':adduser.get('password').valid && adduser.get('password').touched }">
+                        <span *ngIf="!adduser.get('password').valid && adduser.get('password').touched" class="text-danger">Please Enter Password</span><br>
+
+                        <label for="email">Enter Email</label>
+                        <input type="text" id="email" formControlName="email" class="form-control mb-2" [ngClass]="{'is-invalid': !adduser.get('email').valid && adduser.get('email').touched,'is-valid':adduser.get('email').valid && adduser.get('email').touched }">
+                        <span *ngIf="!adduser.get('email').valid && adduser.get('email').touched" class="text-danger">Please Enter Email</span>
+
+
+                        <select formControlName="role" id="role" class="form-control mb-2">
+                            <option value="" selected >Select Role</option>
+                            <option value="admin">admin</option>
+                            <option value="client">client</option>
+                            <option value="super_admin">super_admin</option>
+                            <option value="qc">qc</option>
+                            <option value="mqc">mqc</option>
+                        </select>
+
+
+                        <!-- <div class="input-group mb-2">
+                            <input type="file" class="form-control" (onchange)="avtar($event)" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text btn btn-success" id="basic-addon2">save</span>
+                            </div>
+                        </div> -->
+                        <button class="btn btn-dark w-100" type="submit" [ngClass]="{'d-none': isShow1}">Add User</button>
+                        <button class="btn btn-warning w-100" type="submit" [ngClass]="{'d-none': isShow2}">update User</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="offset-3 col-lg-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col"> Name</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of userData; let i=index">
+                        <td>{{item.username}}</td>
+                        <td>{{item.password}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.role}}</td>
+                        <td> <button class="btn btn-success w-100" (click)="editData(i)">Edit</button></td>
+                        <td><button class="btn btn-danger w-100" (click)="deleteData(i)">Delete</button></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

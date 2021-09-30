@@ -1,0 +1,32 @@
+<div class="row mt-5">
+    <div class="col-sm-4 offset-4">
+        <form [formGroup]="addheaders" (ngSubmit)="addHeaders()">
+            <div class="input-group">
+                <input type="text" formControlName="header" class="form-control">
+                <div class="input-group-append">
+                    <button class="input-group-text btn btn-warning" type="submit">Add Header</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="col-sm-8 container" #TABLE #table>
+    <div style="padding-bottom: 10px;padding-top: 10px;">
+
+    </div>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th *ngFor="let item of data; let id = index" contenteditable="true" (keyup)="changeValue(id,item, $event)" (blur)="updateList(id, item, $event)">{{item}}
+                    <div class="d-flex flex-row-reverse"><i class="bi bi-x-circle-fill float-right" type="button" (click)="removeField(id)"></i></div>
+                </th>
+            </tr>
+        </thead>
+    </table>
+    <div class="row">
+        <div class="col-sm-12">
+            <button (click)="ExportTOExcel()" class="btn btn-success">ExportTOExcel</button> </div>
+    </div>
+</div>
