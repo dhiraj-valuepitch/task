@@ -19,8 +19,11 @@
     <table class="table table-bordered">
         <thead class="thead-dark">
             <tr>
-                <th *ngFor="let item of data; let id = index" contenteditable="true" (keyup)="changeValue(id,item, $event)" (blur)="updateList(id, item, $event)">{{item}}
-                    <div class="d-flex flex-row-reverse"><i class="bi bi-x-circle-fill float-right" type="button" (click)="removeField(id)"></i></div>
+                <th *ngFor="let item of data; let id = index">
+                    <div>
+                        <div contenteditable="true" (keyup)="changeValue(id,item, $event)" (blur)="updateList(id, item, $event)">{{item}}</div>
+                        <div class="d-flex flex-row-reverse"><i class="bi bi-x-circle-fill float-right" type="button" (click)="removeField(id)"></i></div>
+                    </div>
                 </th>
             </tr>
         </thead>

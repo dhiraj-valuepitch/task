@@ -29,12 +29,12 @@
                         </select>
 
 
-                        <!-- <div class="input-group mb-2">
-                            <input type="file" class="form-control" (onchange)="avtar($event)" aria-describedby="basic-addon2">
+                        <div class="input-group mb-2">
+                            <input type="file" class="form-control" formControlName="avtar" (onChange)="avtar($event)" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <span class="input-group-text btn btn-success" id="basic-addon2">save</span>
                             </div>
-                        </div> -->
+                        </div>
                         <button class="btn btn-dark w-100" type="submit" [ngClass]="{'d-none': isShow1}">Add User</button>
                         <button class="btn btn-warning w-100" type="submit" [ngClass]="{'d-none': isShow2}">update User</button>
 

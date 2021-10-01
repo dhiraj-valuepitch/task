@@ -23,11 +23,7 @@ export class ScreentwoComponent implements OnInit {
   addHeaders(){
     this.data.push(this.addheaders.value.header)
     this.addheaders.reset(this.addheaders.value.header=="");
-    console.log(this.data);
-    
   }
-
-
 
   constructor() { }
  
@@ -36,7 +32,7 @@ export class ScreentwoComponent implements OnInit {
     const wb: XLSX.WorkBook = XLSX.utils.book_new();  
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');  
     XLSX.writeFile(wb, 'ScoreSheet.xlsx');  
-    console.log("inside excel"+this.data);
+   
     
   }
 
@@ -50,7 +46,7 @@ export class ScreentwoComponent implements OnInit {
   }
 
   removeField(id:any){
-    const dd = [...this.data];
+    const dd = this.data;
     dd.splice(id,1);
     this.data =dd;
     // console.log(this.data);

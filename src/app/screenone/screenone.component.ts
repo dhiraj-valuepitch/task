@@ -15,7 +15,8 @@ export class ScreenoneComponent implements OnInit {
     username: new FormControl("", Validators.required),
     password:new FormControl("", Validators.required),
     email:new FormControl("",[Validators.required,Validators.email]),
-    role:new FormControl("", Validators.required)   
+    role:new FormControl("", Validators.required),   
+    avtar:new FormControl("", Validators.required)   
   })
   isShow1:Boolean=false;
   isShow2:Boolean=true;
@@ -27,6 +28,8 @@ export class ScreenoneComponent implements OnInit {
     // console.log(this.adduser.value);
     if (!this.isShow1) {
       this.userData.push(this.adduser.value);
+      console.log(this.adduser.value);
+      
     this.adduser.reset(this.adduser.value=="");
     }
     if (!this.isShow2) {
@@ -47,9 +50,10 @@ export class ScreenoneComponent implements OnInit {
   }
 
 
-  // avtar(event){
-    
-  // }
+  avtar(event){
+    console.log(event.target.files);
+   
+  }
 
 
   ngOnInit(): void {
